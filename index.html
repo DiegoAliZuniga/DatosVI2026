@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Explorador interactivo del portafolio de proyectos de investigación UCR 2026."
+    />
+    <meta name="theme-color" content="#005da4" />
+    <title>Proyectos de investigación 2026 | UCR</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="data/projects.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header" aria-label="Encabezado principal">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>
+          <strong>Universidad de Costa Rica</strong>
+          <small>Portafolio de investigación</small>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="#panorama">Panorama</a>
+        <a href="#distribucion">Distribución</a>
+        <a href="#cruce">Cruce</a>
+        <a href="#explorar">Proyectos</a>
+      </nav>
+    </header>
+
+    <main id="contenido">
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p class="eyebrow light">Investigación UCR · 2026</p>
+          <h1 id="hero-title">Una cartera amplia.<br />Una lectura más clara.</h1>
+          <p class="hero-lede">
+            Explore cómo se distribuyen 1.398 proyectos únicos por disciplina,
+            prioridad, territorio y financiamiento.
+          </p>
+          <a class="primary-action" href="#panorama">Explorar los datos</a>
+        </div>
+        <div class="hero-number" aria-label="Año 2026">
+          <span>20</span><span>26</span>
+          <small>Portafolio institucional</small>
+        </div>
+      </section>
+
+      <section class="section-shell filter-section" id="panorama" aria-labelledby="filter-title">
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="eyebrow">Panorama dinámico</p>
+            <h2 id="filter-title">Enfoque la lectura</h2>
+          </div>
+          <p>
+            Los indicadores y gráficos responden a los filtros. Las categorías
+            no desagregadas se mantienen visibles.
+          </p>
+        </div>
+
+        <form class="filters" id="filters" aria-label="Filtros del portafolio">
+          <label>
+            <span>Área de conocimiento</span>
+            <select id="area-filter" name="area">
+              <option value="">Todas las áreas</option>
+            </select>
+          </label>
+          <label>
+            <span>Región</span>
+            <select id="region-filter" name="region">
+              <option value="">Todas las regiones</option>
+            </select>
+          </label>
+          <label>
+            <span>Financiamiento</span>
+            <select id="funding-filter" name="funding">
+              <option value="">Todos los tipos</option>
+            </select>
+          </label>
+          <label class="search-field">
+            <span>Buscar proyecto</span>
+            <input
+              id="search-filter"
+              name="search"
+              type="search"
+              placeholder="Código, unidad u objetivo"
+              autocomplete="off"
+            />
+          </label>
+          <button class="secondary-action" id="reset-filters" type="reset">Limpiar</button>
+        </form>
+
+        <p class="filter-status" id="filter-status" role="status" aria-live="polite">
+          Cargando datos…
+        </p>
+
+        <div class="metrics" aria-label="Indicadores del conjunto filtrado">
+          <article class="metric metric-primary">
+            <span>Proyectos visibles</span>
+            <strong id="metric-count">1.398</strong>
+            <small id="metric-share">100 % de la cartera</small>
+          </article>
+          <article class="metric">
+            <span>Área principal</span>
+            <strong id="metric-area">Ciencias Básicas</strong>
+            <small id="metric-area-detail">384 proyectos</small>
+          </article>
+          <article class="metric">
+            <span>Región principal</span>
+            <strong id="metric-region">Central</strong>
+            <small id="metric-region-detail">1.056 proyectos</small>
+          </article>
+          <article class="metric">
+            <span>Financiamiento principal</span>
+            <strong id="metric-funding">Por la UCR</strong>
+            <small id="metric-funding-detail">1.170 proyectos</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell distribution-section" id="distribucion" aria-labelledby="distribution-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Distribución</p>
+            <h2 id="distribution-title">Cambie la perspectiva</h2>
+          </div>
+          <p id="distribution-summary">
+            Tres disciplinas reúnen 6 de cada 10 proyectos de la cartera.
+          </p>
+        </div>
+
+        <div class="lens-tabs" role="tablist" aria-label="Dimensión del gráfico">
+          <button class="lens-tab active" type="button" role="tab" aria-selected="true" data-lens="areas">
+            Áreas
+          </button>
+          <button class="lens-tab" type="button" role="tab" aria-selected="false" data-lens="objetivos">
+            Objetivos
+          </button>
+          <button class="lens-tab" type="button" role="tab" aria-selected="false" data-lens="regiones">
+            Regiones
+          </button>
+          <button class="lens-tab" type="button" role="tab" aria-selected="false" data-lens="financiamiento">
+            Financiamiento
+          </button>
+        </div>
+
+        <div class="chart-layout">
+          <div class="chart-card" role="tabpanel" aria-labelledby="distribution-title">
+            <div class="chart-meta">
+              <div>
+                <span id="chart-kicker">Área de conocimiento</span>
+                <h3 id="chart-title">Proyectos por disciplina</h3>
+              </div>
+              <button class="text-action" id="toggle-categories" type="button" hidden>Ver todas</button>
+            </div>
+            <div
+              class="horizontal-chart"
+              id="horizontal-chart"
+              role="img"
+              aria-label="Gráfico horizontal de proyectos por área de conocimiento"
+            ></div>
+          </div>
+
+          <aside class="insight-panel" aria-label="Hallazgo principal">
+            <span>Hallazgo principal</span>
+            <strong id="insight-value">60,4 %</strong>
+            <h3 id="insight-title">del portafolio</h3>
+            <p id="insight-copy">
+              Ciencias Básicas, Ciencias Sociales y Salud suman 845 proyectos.
+            </p>
+            <div class="insight-rule" aria-hidden="true"></div>
+            <p class="insight-note" id="insight-note">
+              Pase el cursor o enfoque una barra para consultar su valor y proporción.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="cross-section" id="cruce" aria-labelledby="cross-title">
+        <div class="section-shell">
+          <div class="section-heading cross-heading">
+            <div>
+              <p class="eyebrow light">Objetivo por disciplina</p>
+              <h2 id="cross-title">Tres prioridades movilizan disciplinas distintas</h2>
+            </div>
+            <p>
+              La composición se actualiza según los filtros activos. Cada fila
+              es una barra horizontal apilada.
+            </p>
+          </div>
+          <div class="stacked-card">
+            <div class="stacked-chart" id="stacked-chart" role="img" aria-label="Cruce horizontal apilado de objetivos por disciplina"></div>
+            <div class="legend" id="stacked-legend" aria-label="Leyenda de disciplinas"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell explore-section" id="explorar" aria-labelledby="explore-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Detalle</p>
+            <h2 id="explore-title">Explore los proyectos</h2>
+          </div>
+          <div class="explore-actions">
+            <button class="secondary-action" id="download-csv" type="button">Descargar selección CSV</button>
+          </div>
+        </div>
+
+        <div class="table-wrap" tabindex="0" aria-label="Tabla desplazable de proyectos">
+          <table>
+            <caption class="sr-only">Proyectos que coinciden con los filtros seleccionados</caption>
+            <thead>
+              <tr>
+                <th scope="col"><button type="button" data-sort="codigo">Código</button></th>
+                <th scope="col"><button type="button" data-sort="unidad">Unidad</button></th>
+                <th scope="col"><button type="button" data-sort="area">Área</button></th>
+                <th scope="col"><button type="button" data-sort="objetivo">Objetivo</button></th>
+                <th scope="col"><button type="button" data-sort="region">Región</button></th>
+                <th scope="col"><button type="button" data-sort="financiamiento">Financiamiento</button></th>
+              </tr>
+            </thead>
+            <tbody id="project-rows"></tbody>
+          </table>
+        </div>
+        <div class="pagination" aria-label="Paginación de proyectos">
+          <button class="text-action" id="previous-page" type="button">Anterior</button>
+          <span id="page-status" aria-live="polite">Página 1</span>
+          <button class="text-action" id="next-page" type="button">Siguiente</button>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <span>Proyectos de investigación UCR · 2026</span>
+    </footer>
+
+    <noscript>
+      <div class="noscript">Este explorador necesita JavaScript para mostrar filtros y gráficos interactivos.</div>
+    </noscript>
+
+    <div class="data-error" id="data-error" role="alert" hidden>
+      No fue posible cargar los datos. Publique la carpeta completa para conservar la ruta <code>data/projects.js</code>.
+    </div>
+  </body>
+</html>
