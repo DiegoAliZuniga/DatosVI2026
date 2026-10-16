@@ -1,21 +1,27 @@
-# Proyectos de investigación UCR 2026
+# Explorador de la investigación UCR 2026
 
-Micrositio estático e interactivo del portafolio de proyectos de investigación 2026.
+Sitio estático, sin instalación ni dependencias externas. Los archivos de `dist/` funcionan al abrir `index.html` y se pueden publicar en GitHub Pages.
 
 ## Contenido
 
-- `index.html`: página principal.
-- `styles.css`: diseño responsivo y paleta original.
-- `app.js`: filtros, gráficos horizontales, tabla, paginación y descarga CSV.
-- `data/projects.js`: base de 1.398 proyectos.
-- `.nojekyll`: evita transformaciones de Jekyll en GitHub Pages.
+- 1.427 códigos de proyectos únicos del Informe VI 2026.
+- Filtros combinables por área, tipo de investigación, región, ODS y búsqueda de código o tema.
+- Selección adicional desde las barras de descriptores, objetivos socioeconómicos y financiamiento.
+- Figuras PNG con la selección activa, tabla de detalle y exportación CSV.
+- Tipologías exclusivas de proyectos, con 2 registros sin clasificación.
+- ODS, regiones y descriptores deduplicados por proyecto.
+- Financiamiento verificable en 1.397 proyectos; 29 sin registro y C3315 con categorías contradictorias.
 
-## Publicación en GitHub Pages
+El financiamiento describe categorías, no montos. Las presencias regionales y los vínculos con ODS pueden superar el número de proyectos.
 
-1. Cree un repositorio nuevo en GitHub.
-2. Suba el contenido de esta carpeta a la raíz del repositorio.
-3. Abra `Settings > Pages`.
-4. En `Build and deployment`, seleccione `Deploy from a branch`.
-5. Elija la rama `main`, carpeta `/ (root)` y guarde.
+## GitHub Pages
 
-La página no requiere instalación, compilación ni servicios externos. También puede abrir `index.html` directamente para consultarla en su computadora.
+Publica el contenido de `dist/` en la raíz de un repositorio o en su carpeta `docs/`, y selecciona esa ubicación en la configuración de Pages. Conserva juntos todos los archivos de `dist/`.
+
+## Datos
+
+La extracción local se genera con `work/build_site_data.py` desde la base depurada y el cruce de financiamiento de esta conversación. El sitio no actualiza los datos automáticamente.
+
+## Diseño
+
+Paleta conservada: azul `#07589A`, celeste `#4AB6D6` y amarillo `#F3C633`. Se aplicaron los principios de accesibilidad, jerarquía y visualización de datos de [Apple Design Skill](https://github.com/dickwu/apple-design-skill).

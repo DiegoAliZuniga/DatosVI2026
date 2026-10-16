@@ -1,0 +1,15 @@
+.hero-composition { background: #0B3048; }
+.hero-bands { height: 28px; gap: 0; align-items: stretch; overflow: hidden; border-radius: 4px; }
+.hero-bands span { height: 28px; flex: 1138; border-radius: 0; background: var(--blue); }
+.hero-bands span:nth-child(2) { height: 28px; flex: 256; background: var(--cyan); }
+.hero-bands span:nth-child(3) { height: 28px; flex: 31; background: var(--yellow); }
+.hero-bands span:nth-child(4) { height: 28px; flex: 2; min-width: 1px; background: var(--grey); }
+.circle-stat { position: relative; border: 0; background: conic-gradient(var(--blue) var(--progress, 82%), #B8DDEB 0); }
+.circle-stat::before { content: ''; position: absolute; inset: 12px; border-radius: 50%; background: #E7F3F8; }
+.circle-stat > * { position: relative; }
+.chart-scroll > svg { min-width: 0; }
+@media (max-width: 760px) {
+  .type-layout .chart-scroll > svg { min-width: 0; }
+  .circle-stat::before { inset: 9px; }
+  .two-charts .chart { max-height: none; }
+}
