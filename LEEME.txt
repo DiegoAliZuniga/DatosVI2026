@@ -8,7 +8,7 @@ PARA CORREGIR LA PAGINA EXISTENTE
 2. Entra en la carpeta donde está el index.html actual y selecciona Add file > Upload files.
 3. Sube este index.html, reemplazando el index.html anterior en esa misma ubicación.
 4. Confirma con Commit changes en la rama que publica GitHub Pages.
-5. Abre https://diegoalizuniga.github.io/DatosVI2026/?v=20261016-integrado-2
+5. Abre https://diegoalizuniga.github.io/DatosVI2026/?v=20261016-integrado-3
 
 Puedes conservar los archivos CSS y JS anteriores: esta versión no los solicita.
 No se modificaron los datos ni la orientación de los gráficos.
