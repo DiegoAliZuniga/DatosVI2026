@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07589A">
+  <meta name="description" content="Explora la caracterización de los proyectos de investigación UCR 2026 por área, tipo, ODS, región y temas de investigación.">
+  <title>Investigación UCR 2026 | Explorador de proyectos</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="responsive.css">
+  <script src="data.js" defer></script>
+  <script src="core.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#filtros">Ir a los filtros</a>
+  <header class="masthead">
+    <a class="brand" href="#inicio" aria-label="Investigación UCR, inicio"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span><strong>UCR</strong><small>Investigación · 2026</small></span></a>
+    <nav aria-label="Secciones del explorador">
+      <a href="#tipologia">Tipos y áreas</a><a href="#ods">ODS</a><a href="#territorio">Territorio</a><a href="#temas">Temas</a><a href="#proyectos">Proyectos</a>
+    </nav>
+    <button class="button quiet print-button" type="button">Imprimir vista</button>
+  </header>
+
+  <main id="inicio">
+    <section class="hero page-width">
+      <div class="hero-copy">
+        <p class="eyebrow">Caracterización de la investigación</p>
+        <h1>Una mirada a lo<br>que investigamos.</h1>
+        <p class="hero-intro">Explora los proyectos de 2026, sus áreas de conocimiento y sus vínculos con el desarrollo y el territorio.</p>
+        <a class="button primary" href="#filtros">Explorar los datos <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="hero-composition" aria-label="1.427 proyectos de investigación en 2026">
+        <div class="hero-label">Proyectos de investigación</div>
+        <div class="hero-number">1.427</div>
+        <div class="hero-bands" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <div class="hero-bottom"><span>1.138 Básica · 256 Aplicada<br>31 Tecnológica · 2 sin clasificación</span><strong>2026</strong></div>
+      </div>
+    </section>
+
+    <section class="scope page-width" aria-label="Alcance de la base">
+      <div><strong>1.847</strong><span>registros en la base</span></div>
+      <div class="scope-projects"><strong>1.427</strong><span>proyectos para explorar</span></div>
+      <div><strong>420</strong><span>otros registros: 266 actividades,<br>52 programas y 102 vínculos</span></div>
+      <p>Las clasificaciones <b>Básica, Aplicada y Tecnológica</b> se presentan únicamente para proyectos de investigación.</p>
+    </section>
+
+    <section id="filtros" class="filter-panel page-width" aria-labelledby="filter-title">
+      <div class="panel-heading"><div><p class="eyebrow">Elige tu perspectiva</p><h2 id="filter-title">Cruza los datos.</h2></div><button id="reset-filters" class="button quiet" type="button">Restablecer filtros</button></div>
+      <div class="filters">
+        <label>Área de conocimiento<select id="area-filter"><option value="">Todas las áreas</option></select></label>
+        <label>Tipo de investigación<select id="type-filter"><option value="">Todos los tipos</option></select></label>
+        <label>Región<select id="region-filter"><option value="">Todas las regiones</option></select></label>
+        <label>Objetivo de desarrollo<select id="ods-filter"><option value="">Todos los ODS</option></select></label>
+        <label class="search-label">Código o tema<input id="search-filter" type="search" placeholder="Ej. C6280, agua, educación" autocomplete="off"></label>
+      </div>
+      <div id="filter-chips" class="filter-chips" aria-label="Filtros activos"></div>
+      <p class="filter-hint">También puedes seleccionar las barras para filtrar. Todas las figuras y la tabla responden a la misma selección.</p>
+    </section>
+
+    <div class="selection-bar"><div class="page-width selection-inner"><p id="selection-summary" role="status" aria-live="polite"></p><div><button id="clear-selection" type="button" class="text-button" hidden>Quitar filtros</button><a href="#filtros">Ajustar filtros ↑</a></div></div></div>
+
+    <div class="page-width content">
+      <section class="metrics" aria-label="Indicadores de la selección">
+        <article class="metric"><span>Proyectos seleccionados</span><strong id="metric-projects">1.427</strong><small id="metric-projects-note"></small></article>
+        <article class="metric"><span>Con al menos un ODS</span><strong id="metric-ods">1.170</strong><small id="metric-ods-note"></small></article>
+        <article class="metric"><span>Con región registrada</span><strong id="metric-regions">1.402</strong><small id="metric-regions-note"></small></article>
+        <article class="metric"><span>Financiamiento verificable</span><strong id="metric-finance">1.397</strong><small id="metric-finance-note"></small></article>
+      </section>
+
+      <section id="tipologia" class="section-block">
+        <div class="section-heading"><div><p class="eyebrow">Cómo se investiga</p><h2>Tipos de investigación.</h2></div><p>Las tres clasificaciones principales permiten leer la composición del conjunto seleccionado.</p></div>
+        <div class="type-layout">
+          <article class="chart-card">
+            <div class="chart-heading"><h3>Proyectos por tipo</h3><button type="button" class="download-button" data-chart="type-chart">Descargar PNG</button></div>
+            <div class="chart-scroll"><svg id="type-chart" class="chart" aria-label="Proyectos por tipo de investigación"></svg></div>
+            <p class="chart-note">Selecciona una columna para explorar ese tipo.</p>
+          </article>
+          <aside class="reading-card blue-card">
+            <p class="eyebrow">Lectura de la selección</p><strong id="dominant-type-count">1.138</strong><h3 id="dominant-type-label">Proyectos de investigación básica</h3><p id="type-insight"></p>
+            <div class="classification-note"><b id="unclassified-count">2</b><span id="unclassified-note">proyectos pendientes de clasificación</span></div>
+          </aside>
+        </div>
+        <article class="chart-card area-card">
+          <div class="chart-heading wrap"><div><h3 id="area-chart-title">Tipo de investigación por área de conocimiento</h3><p class="chart-subtitle">Cada barra reúne los proyectos de un área.</p></div><div class="chart-tools"><div class="segmented" aria-label="Perspectiva del área"><button type="button" class="active" data-dimension="area" aria-pressed="true">Conocimiento</button><button type="button" data-dimension="application" aria-pressed="false">Aplicación</button></div><button type="button" class="download-button" data-chart="area-chart">Descargar PNG</button></div></div>
+          <div class="legend"><span><i class="basic"></i>Básica</span><span><i class="applied"></i>Aplicada</span><span><i class="technology"></i>Tecnológica</span><span><i class="unknown"></i>Sin clasificación</span></div>
+          <div class="chart-scroll"><svg id="area-chart" class="chart" aria-label="Tipo de investigación por área"></svg></div>
+        </article>
+      </section>
+
+      <section id="ods" class="section-block">
+        <div class="section-heading"><div><p class="eyebrow">Agenda de desarrollo</p><h2>Conexiones con los ODS.</h2></div><p>Proyectos asociados a cada Objetivo de Desarrollo Sostenible. Un proyecto puede vincularse con varios.</p></div>
+        <div class="ods-layout">
+          <article class="chart-card"><div class="chart-heading"><h3>Proyectos por ODS</h3><button type="button" class="download-button" data-chart="ods-chart">Descargar PNG</button></div><div class="chart-scroll"><svg id="ods-chart" class="chart" aria-label="Proyectos por Objetivo de Desarrollo Sostenible"></svg></div><p class="chart-note">Se cuenta una vez cada combinación de proyecto y ODS.</p></article>
+          <aside class="reading-card ods-reading"><div class="circle-stat"><strong id="ods-percent">82 %</strong><span>con algún ODS<br>en la selección</span></div><h3>Una investigación.<br>Más de una conexión.</h3><p>Las barras muestran vínculos individuales. Por eso, su suma puede superar el número de proyectos seleccionados.</p><div class="small-stat"><b id="without-ods">257</b><span>proyectos sin ODS registrado</span></div><button id="filter-no-ods" type="button" class="button quiet">Explorar sin ODS</button></aside>
+        </div>
+      </section>
+
+      <section id="territorio" class="section-block">
+        <div class="section-heading"><div><p class="eyebrow">Alcance territorial</p><h2>La investigación en las regiones.</h2></div><p>Cada proyecto se cuenta una sola vez dentro de cada región, aunque tenga varias ubicaciones en ella.</p></div>
+        <div class="territory-layout"><aside class="territory-summary"><span class="eyebrow">Presencias regionales</span><strong id="region-presences">1.940</strong><p>combinaciones de proyecto y región en la selección</p><div class="territory-lines"><div><b id="multiregion-count">269</b><span>proyectos en varias regiones</span></div><div><b id="without-region">25</b><span>sin ubicación registrada</span></div></div><p class="fine-print">Las presencias pueden superar el total de proyectos. “Sin ubicación” se muestra por separado.</p></aside><article class="chart-card"><div class="chart-heading"><h3>Proyectos con presencia por región</h3><button type="button" class="download-button" data-chart="region-chart">Descargar PNG</button></div><div class="chart-scroll"><svg id="region-chart" class="chart" aria-label="Proyectos por región"></svg></div></article></div>
+      </section>
+
+      <section id="temas" class="section-block">
+        <div class="section-heading"><div><p class="eyebrow">Qué se investiga</p><h2>Temas y propósitos.</h2></div><p>Otra forma de acercarse al conjunto: sus descriptores temáticos y objetivos socioeconómicos.</p></div>
+        <div class="two-charts"><article class="chart-card"><div class="chart-heading"><div><h3>Descriptores más frecuentes</h3><p class="chart-subtitle">Los 12 con más proyectos en la selección.</p></div><button type="button" class="download-button" data-chart="descriptor-chart">PNG</button></div><div class="chart-scroll"><svg id="descriptor-chart" class="chart" aria-label="Descriptores más frecuentes"></svg></div><p class="chart-note">Cada descriptor cuenta proyectos únicos. Un proyecto puede tener varios.</p></article><article class="chart-card"><div class="chart-heading"><div><h3>Objetivos socioeconómicos</h3><p class="chart-subtitle">Propósito registrado para cada proyecto.</p></div><button type="button" class="download-button" data-chart="socio-chart">PNG</button></div><div class="chart-scroll"><svg id="socio-chart" class="chart" aria-label="Objetivos socioeconómicos"></svg></div></article></div>
+      </section>
+
+      <section id="financiamiento" class="section-block">
+        <div class="section-heading"><div><p class="eyebrow">Recursos para investigar</p><h2>Tipos de financiamiento.</h2></div><p>Clasificaciones recuperadas mediante el cruce de códigos con los archivos de 2026 disponibles.</p></div>
+        <div class="finance-layout"><article class="chart-card"><div class="chart-heading"><h3>Proyectos por tipo de financiamiento</h3><button type="button" class="download-button" data-chart="finance-chart">Descargar PNG</button></div><div class="chart-scroll"><svg id="finance-chart" class="chart" aria-label="Tipos de financiamiento"></svg></div></article><aside class="reading-card yellow-card"><p class="eyebrow">Cobertura de la información</p><strong id="finance-percent">98 %</strong><h3>Con clasificación verificable</h3><p id="finance-coverage"></p><div class="funding-pending"><p><b id="finance-missing">29</b> sin registro de financiamiento</p><p><b id="finance-conflict">1</b> con información contradictoria</p></div><p class="fine-print">El código C3315 presenta dos clasificaciones en el listado original. Se conserva pendiente de verificación. Las fuentes contienen tipos de financiamiento; no contienen montos.</p></aside></div>
+      </section>
+
+      <section id="proyectos" class="section-block">
+        <div class="section-heading"><div><p class="eyebrow">Del panorama al detalle</p><h2>Explora cada proyecto.</h2></div><button id="download-csv" type="button" class="button primary">Descargar selección · CSV</button></div>
+        <div class="project-table-card"><div class="table-toolbar"><p id="table-summary"></p><label>Ordenar por <select id="table-sort"><option value="id">Código</option><option value="area">Área de conocimiento</option><option value="type">Tipo de investigación</option><option value="ods">Número de ODS</option></select></label></div><div class="table-scroll"><table><caption class="sr-only">Proyectos que cumplen los filtros seleccionados</caption><thead><tr><th scope="col">Código</th><th scope="col">Tipo</th><th scope="col">Área de conocimiento</th><th scope="col">ODS vinculados</th><th scope="col">Regiones</th></tr></thead><tbody id="project-rows"></tbody></table></div><div class="pagination"><p id="page-summary"></p><div><button id="previous-page" type="button" class="button quiet">Anterior</button><button id="next-page" type="button" class="button quiet">Siguiente</button></div></div></div>
+      </section>
+
+      <section class="methodology" aria-labelledby="method-title"><h2 id="method-title">Cómo leer estas cifras</h2><div><p>El universo reúne <b>1.427 códigos de proyecto únicos</b>: 1.375 proyectos, 51 proyectos de fondo especial de estímulo y 1 proyecto de fondo restringido. Las actividades, programas y vínculos se muestran únicamente como contexto de la base.</p><p>Las clasificaciones principales corresponden a 1.425 proyectos. Otros 2 quedan como <b>sin clasificación</b>. ODS, regiones y descriptores se deduplican por proyecto antes de contarlos.</p><p>Las descargas reflejan los filtros activos. Puedes llevar los gráficos PNG a tu informe y utilizar el CSV para revisar los registros de la selección.</p></div></section>
+    </div>
+  </main>
+  <footer class="page-width"><span>Investigación UCR · 2026</span><a href="#inicio">Volver al inicio ↑</a></footer>
+  <dialog id="project-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><p class="eyebrow">Detalle del proyecto</p><button id="close-dialog" type="button" class="button quiet">Cerrar ×</button></div><h2 id="dialog-title"></h2><div id="dialog-content"></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><p class="no-script">Activa JavaScript para explorar los filtros y los gráficos.</p></noscript>
+</body>
+</html>
